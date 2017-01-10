@@ -4,10 +4,13 @@ var mongoose=require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
-var Vehicle = new Schema({
+var Ride = new Schema({
 
     id: {type: Number, required: true, unique: true},
-    group_id: {type: Number, unique: true},
+    start: {type: String, required: true},
+    end: {type: String, required: true},
     user: {type: ObjectId, ref: 'User', required: true},
-    position: {type: String, required:true}
+    vehicles: {type: ObjectId, ref: 'Vehicle'},
+    group_vehicles: {type: Number, required: true}
+
 });
