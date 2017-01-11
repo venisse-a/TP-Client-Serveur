@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Vehicles extends React.Component {
+class Trips extends React.Component {
     render() {
         return (
             <div className='alert alert-info'>
@@ -10,4 +10,4 @@ class Vehicles extends React.Component {
     }
 }
 
-export default Vehicles;
+export default Trips;
