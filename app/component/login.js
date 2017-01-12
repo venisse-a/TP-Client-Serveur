@@ -16,7 +16,7 @@ class Login extends React.Component {
 
     onLogin() {
         this.setState({is_login: true});
-    }
+    }1
 
 
     handleChange(event) {
