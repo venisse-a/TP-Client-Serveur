@@ -11,6 +11,10 @@ var ReactDOM = require('react-dom/server');
 var Router = require('react-router');
 var routes = require('./app/routes');
 var app = express();
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/Localhost');
+
 
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
@@ -33,6 +37,24 @@ app.use(function(req, res) {
         }
     });
 });
+
+app.post('/api/auth', function(req, res) {
+    if(!req.body.hasOwnProperty('username') ||
+        !req.body.hasOwnProperty('password')) {
+        res.statusCode = 400;
+        return res.send('Error 400: Post syntax incorrect.');
+    }
+    const username = req.body.username;
+    const password = req.body.password;
+
+    models.User.findOne({ 'name': username, 'password' : password }, 'name', function (err, user) {
+        if (err) return res.send(false);
+        else return user == null? res.send(false) : res.send(user.id);
+
+    })
+
+});
+
 
 app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
