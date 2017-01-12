@@ -1,10 +1,6 @@
 import React from 'react';
 
 class Home extends React.Component {
-    Logout() {
-        console.log('foezkffezfkpez')
-        this.props.history.push('/vehicles');
-    }
 
     render() {
         return (
