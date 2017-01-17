@@ -8,7 +8,7 @@ Ce projet est un client-serveur de gestion de voitures en NodeJS, ReactJS et uti
 
 Pour installer le projet:
 
--npm install
+- npm install
 
 #Lancement du projet
 
@@ -17,8 +17,8 @@ Pour installer le projet:
 
 #Pages disponibles:
 
--http://localhost:3000
--http://localhost:3000/profile
+- http://localhost:3000
+- http://localhost:3000/profile
 
 #Problèmes rencontrés:
 
