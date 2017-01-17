@@ -6,16 +6,10 @@ var ObjectId = Schema.Types.ObjectId;
 
 
 var User = new Schema({
-    name: String,
     username: {type: String, required: true, unique: true},
-    password: {type: String, required: true},
-    admin: Boolean,
+    password: {type: String, required: true}
 });
 
-// checking if password is valid
-User.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
-};
 
 
 module.exports = {

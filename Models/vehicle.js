@@ -6,10 +6,11 @@ var ObjectId = Schema.Types.ObjectId;
 
 var Vehicle = new Schema({
 
-    id: {type: Number, required: true, unique: true},
-    group_id: {type: Number, unique: true},
+    ref: {type:String, required: true},
     user: {type: ObjectId, ref: 'User', required: true},
-    position: {type: String, required:true}
+    start: {type: String},
+    end: {type: String},
+    start_time: { type: Date }
 });
 
 module.exports = {
