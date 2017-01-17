@@ -1,6 +1,5 @@
 import React from "react";
 import Request from 'react-http-request';
-
 class Login extends React.Component {
 
 
@@ -8,13 +7,13 @@ class Login extends React.Component {
         return (
             <div>
                 <form action ="http://localhost:3000/login"method="post">
-                    <div class="form-group">
+                    <div className="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" name="username"/>
+                        <input type="text" className="form-control" name="username"/>
                     </div>
-                < div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password"/>
+                    < div className="form-group">
+                        <label>Password</label>
+                        <input type="password" className="form-control" name="password"/>
                     </div>
                     <input type="submit" name="login"/>
                 </form>

@@ -5,6 +5,7 @@ import Home from './component/home';
 import Register from './component/register';
 import Login from './component/login';
 import Profile from './component/profile';
+import Vehicles from './component/vehicles'
 
 
 export default (
@@ -13,6 +14,7 @@ export default (
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register}/>
         <Route path="/profile" component={Profile}/>
+        <Route path="/vehicle" component = {Vehicles}/>
     </Route>
 );
 
