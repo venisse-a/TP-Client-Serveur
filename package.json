@@ -60,5 +60,22 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "xo": {
+    "esnext": true,
+    "envs":[
+      "node"
+    ],
+    "space":2,
+    "rules": {
+      "max-len": [
+        "error",
+        80,
+        2
+      ]
+    },
+    "ignores":[
+      "Gruntfile.js"
+    ]
+  }
 }
