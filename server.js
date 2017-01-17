@@ -12,7 +12,7 @@ var Router = require('react-router');
 var routes = require('./app/routes');
 var app = express();
 var mongoose = require('mongoose');
-
+var passport = require('passport');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 mongoose.connect('mongodb://localhost/Localhost');
@@ -91,13 +91,55 @@ app.route(`/api/:type(${db.join('|')})/:id/relationships/:relationship`)
     .delete(apiReqHandler);
 
 app.post('/login', function(req, res) {
-    console.log("heeeeere");
     models.User.findOne({ 'username' :  req.body.username, 'password':req.body.password }, function(err, user) {
-        if (err) return res.send(false);
-        else return user == null? res.send(false) : res.send(user.id);
+        if (err)
+            res.redirect('http://localhost:3000/login');
+        else if (user == null)
+            res.redirect('http://localhost:3000/login');
+        else
+            res.redirect('http://localhost:3000/profile');
+            res.send(user);
+    })
+});
+
+app.post('/register', function(req, res) {
+    models.User.findOne({ 'username' :  req.body.username, 'password':req.body.password }, function(err, user) {
+        if (user)
+            res.redirect('http://localhost:3000/register');
+        else
+            var user_add = new User({
+                username: req.body.username,
+                password: req.body.password
+            });
+            res.redirect('http://localhost:3000/profile');
+            res.send(user_add);
+    })
+});
+
+app.post('/vehicle', function(req, res) {
+    models.Vehicle.findOne({ 'reference' :  req.body.reference }, function(err, vehicle) {
+        if (vehicle){
+            res.redirect('http://localhost:3000/profile');
+            console.log('Vehicle reference already exists');
+        }
+        else {
+
+            var vehicle_add = new Vehicle({
+                reference: req.body.reference,
+                user: this.props.user,
+                start: req.body.start,
+                end:req.body.end,
+                start_time:req.body.date
+            });
+            res.redirect('http://localhost:3000/profile');
+            res.send(vehicle_add);
+        }
     })
 });
 
 app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+
