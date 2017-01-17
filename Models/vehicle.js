@@ -11,3 +11,14 @@ var Vehicle = new Schema({
     user: {type: ObjectId, ref: 'User', required: true},
     position: {type: String, required:true}
 });
+
+module.exports = {
+    schema: Vehicle,
+    model: mongoose.model('Vehicle', Vehicle),
+    registry: {
+        urlTemplates: {
+            "self": "http://127.0.0.1:3000/vehicle/{id}",
+            "relationship": "http://127.0.0.1:3000/vehicle/{ownerId}/relationships/{path}"
+        }
+    }
+};

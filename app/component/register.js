@@ -1,8 +1,7 @@
 import React from "react";
 import Request from 'react-http-request';
 
-class Login extends React.Component {
-
+class Register extends React.Component {
 
     render() {
         return (
@@ -12,11 +11,11 @@ class Login extends React.Component {
                         <label>Username</label>
                         <input type="text" class="form-control" name="username"/>
                     </div>
-                < div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password"/>
+                    < div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password"/>
                     </div>
-                    <input type="submit" name="login"/>
+                    <input type="submit" name="register"/>
                 </form>
             </div>
 
@@ -24,5 +23,4 @@ class Login extends React.Component {
     }
 }
 
-
-export default Login;
+export default Register;

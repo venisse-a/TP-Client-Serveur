@@ -2,17 +2,17 @@ import React from 'react';
 import {Route} from 'react-router';
 import App from './component/app';
 import Home from './component/home';
-import Account from './component/account';
+import Register from './component/register';
 import Login from './component/login';
-import Vehicles from './component/vehicles';
-import Trips from './component/trips';
+import Profile from './component/profile';
+
 
 export default (
     <Route component={App}>
-        <Route path='/' component={Login} />
-        <Route path="/home" component={Home}/>
-        <Route path="/account" component={Account}/>
-        <Route path="/vehicles" component={Vehicles}/>
-        <Route path="/trips" component={Trips}/>
+        <Route path="/" component={Home}/>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register}/>
+        <Route path="/profile" component={Profile}/>
     </Route>
 );
+
